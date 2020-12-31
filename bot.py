@@ -114,7 +114,7 @@ def Sign_UP():
     Sign_UP_btn.submit()
 
 
-Sign_UP()
+# Sign_UP()
 
 
 def Login(x,y):
@@ -145,7 +145,7 @@ def Login(x,y):
 
 
     
-    # Remember me button is already ticked by Spotify , so no need to check again
+    # Remember me button is already checked by Spotify in my case, In your case, if not checked then un-comment below 2 lines 
     # Remember_me_Btn = driver.find_element(By.XPATH, '//*[@id="app"]/body/div[1]/div[2]/div/form/div[4]/div[1]/div/label/span').click()
     # sleep(5)
 
@@ -187,6 +187,7 @@ def Login(x,y):
                 pass
 
         elif add_to_liked_songs == 'N' or add_to_liked_songs == 'n':
+            print("Song is removed from 'Liked Song playlist'.")
             
             Playlist = pyautogui.prompt("Want to see 'Liked Song Playlist' (Y/N):: ")
 
@@ -199,6 +200,8 @@ def Login(x,y):
         else:
             pass
 
+        
+
     search("Akela Tha")  # Enter your song name replace by "Akela Tha"
 
 
@@ -207,7 +210,7 @@ Login(password.main_acc_email, password.main_acc_pwd)
 
 
 
-driver.quit()
+# driver.quit()
     
     
     
