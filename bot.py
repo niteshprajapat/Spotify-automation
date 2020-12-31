@@ -29,13 +29,13 @@ def Sign_UP():
     sign_up = driver.find_element(By.LINK_TEXT, "Sign up").click() 
     sleep(5)
 
-    EMAIL = "instabottestingemail1@gmail.com"
-    NICK_NAME = "Spotify Testing Bot"
+    EMAIL = "instabottestingemail1@gmail.com"  # add your email address
+    NICK_NAME = "Spotify Testing Bot"          # add your name by which spotify tries to remember you
 
 
-    YEAR = 2000
-    DAY = 28
-    Month_name = "February"
+    YEAR = 2000                         # enter your Year of birth
+    DAY = 28                            # enter your Date of birth
+    Month_name = "February"             # enter your Month of birth    
 
 
     sleep(2)
@@ -102,7 +102,7 @@ def Sign_UP():
     
 
 
-    pyautogui.alert("Please Solve reCAPTCHA puzzle!!!. You have 60 seconds.")
+    pyautogui.alert("Please Solve reCAPTCHA puzzle!!!. You have 60 seconds.")   # Please solve reCAPTCHA puzzle to continue , this will not done by Bot .
     sleep(60)
 
     # Re_captcha = driver.find_element(By.ID, 'recaptcha-anchor')
@@ -114,7 +114,7 @@ def Sign_UP():
     Sign_UP_btn.submit()
 
 
-# Sign_UP()
+Sign_UP()
 
 
 def Login(x,y):
@@ -145,7 +145,7 @@ def Login(x,y):
 
 
     
-
+    # Remember me button is already ticked by Spotify , so no need to check again
     # Remember_me_Btn = driver.find_element(By.XPATH, '//*[@id="app"]/body/div[1]/div[2]/div/form/div[4]/div[1]/div/label/span').click()
     # sleep(5)
 
@@ -199,7 +199,7 @@ def Login(x,y):
         else:
             pass
 
-    search("Akela Tha")
+    search("Akela Tha")  # Enter your song name replace by "Akela Tha"
 
 
 
