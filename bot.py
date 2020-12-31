@@ -29,13 +29,13 @@ def Sign_UP():
     sign_up = driver.find_element(By.LINK_TEXT, "Sign up").click() 
     sleep(5)
 
-    EMAIL = "instabottestingemail1@gmail.com"  # add your email address
-    NICK_NAME = "Spotify Testing Bot"          # add your name by which spotify tries to remember you
+    EMAIL = "abc@gmail.com"  # add your email address
+    NICK_NAME = "XYZ"          # add your name by which spotify tries to remember you
 
 
-    YEAR = 2000                         # enter your Year of birth
-    DAY = 28                            # enter your Date of birth
-    Month_name = "February"             # enter your Month of birth    
+    YEAR =  1234                        # enter your Year of birth
+    DAY = 11                            # enter your Date of birth
+    Month_name = "January"             # enter your Month of birth    
 
 
     sleep(2)
@@ -168,6 +168,11 @@ def Login(x,y):
 
     def search(song):
 
+        """
+        This function search a song which is given by user as an argument. (Song name must be valid) 
+
+        """
+
         search_box = driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[2]/nav/ul/li[2]/a').click()
         sleep(2)
         search_music = driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[1]/header/div[3]/div/div/input')
@@ -216,12 +221,56 @@ def Login(x,y):
 
         
 
-    search("Banjarey")  # Enter your song name replace by "Akela Tha"
-    search("Dooriyan(feat. Kaprila)")
+    # search("Banjarey")  # Enter your song name replace by "Akela Tha"
+    # search("Dooriyan(feat. Kaprila)")
+
+
+    def play_liked_songs():
+
+        """
+        This function plays your liked song playlist. This function plays all songs in sequence .
+        """
+        sleep(2)
+
+        driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[2]/nav/div[2]/div/div[2]/a/span').click()
+        sleep(2)
+        
+        driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[4]/main/div[2]/div[2]/div/div/div[2]/section/div[3]/div/button').click()
+        driver.execute_script("window.scrollBy(0, document.body.scrollHeight)")
+
+    play_liked_songs()
+
+
+    def fav_artist(name):
+
+        """
+        This function plays all songs of your favourite Artist. (Songs either shuffled or not)
+
+        """
+
+        sleep(2)
+
+        search_btn = driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[2]/nav/ul/li[2]/a/span').click()
+        search_artist = driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[1]/header/div[3]/div/div/input')
+        search_artist.send_keys(name, Keys.ENTER)
+        sleep(2)
+
+        driver.find_element(By.XPATH, '//*[@id="searchPage"]/div/div/section[1]/div[2]/div/div/div/div[4]').click()
+        sleep(2)
+        driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[4]/main/div[2]/div[2]/div/div/div[2]/section/div/div[2]/div[2]/div/button[1]').click()
+
+    fav_artist("Ritviz")
+
+
 
 
 
 Login(password.main_acc_email, password.main_acc_pwd)
+
+
+if __name__ == '__main__':
+    
+    
 
 sleep(10)
 user_logout_choice = pyautogui.prompt("Want to quit (Y/N) ::")
