@@ -209,8 +209,12 @@ def Login(x,y):
 Login(password.main_acc_email, password.main_acc_pwd)
 
 
+user_logout_choice = pyautogui.prompt("Want to quit (Y/N) ::")
 
-# driver.quit()
+if user_logout_choice == "Y" or user_logout_choice == "y":
+    driver.quit()
     
+else:
+    pass
     
     
