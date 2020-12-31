@@ -268,7 +268,7 @@ def Login(x,y):
 Login(password.main_acc_email, password.main_acc_pwd)
 
 
-if __name__ == '__main__':
+
     
     
 
