@@ -158,9 +158,13 @@ def Login(x,y):
     driver.get("https://open.spotify.com/?_ga=2.11073460.1059300004.1609394928-1863048095.1609394928")
     sleep(5)
 
-    driver.find_element(By.XPATH, '//*[@id="onetrust-close-btn-container"]/button').click()
-    sleep(2)
+    try:
+        driver.find_element(By.XPATH, '//*[@id="onetrust-close-btn-container"]/button').click()
+        sleep(2)
 
+    except Exception as e:
+        print(f"Error : {e}")
+        
 
     def search(song):
 
@@ -172,22 +176,32 @@ def Login(x,y):
         music_label = driver.find_element(By.XPATH, '//*[@id="searchPage"]/div/div/section[1]/div[2]/div/div/div/div[4]')
         music_label.click()
 
+        sleep(10)
         add_to_liked_songs = pyautogui.prompt("Want to add in Liked songs (Y/N):: ")
 
         if add_to_liked_songs == "Y" or add_to_liked_songs == "y":
-            driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[3]/footer/div/div[1]/div/div[3]/div/button').click()
-            print("Song is add to 'Liked Song playlist'.")
-            
+            if not (driver.title == "Remove from Your Library") :
+                driver.execute_script("window.scrollBy(0,500)", "")
+                driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[3]/footer/div/div[1]/div/div[3]/div/button').click()
+                print("Currently playing song is add to 'Liked Song playlist'.")
+
+            else:
+                print("Already in 'Liked Song Playlist'. ")
+
+
+            sleep(5)
             playlist = pyautogui.prompt("Want to see 'Liked Song Playlist' (Y/N):: ")
             
             if playlist == 'Y' or playlist == 'y':
+                driver.execute_script("window.scrollBy(0,500)", "")
                 driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[2]/nav/div[2]/div/div[2]/a/span').click()
 
             else:
                 pass
 
         elif add_to_liked_songs == 'N' or add_to_liked_songs == 'n':
-            print("Song is removed from 'Liked Song playlist'.")
+            pyautogui.alert("Currently playing song is not added in 'Liked Song playlist")
+            print("Currently playing song is not added in 'Liked Song playlist'.")
             
             Playlist = pyautogui.prompt("Want to see 'Liked Song Playlist' (Y/N):: ")
 
@@ -202,13 +216,14 @@ def Login(x,y):
 
         
 
-    search("Akela Tha")  # Enter your song name replace by "Akela Tha"
+    search("Banjarey")  # Enter your song name replace by "Akela Tha"
+    search("Dooriyan(feat. Kaprila)")
 
 
 
 Login(password.main_acc_email, password.main_acc_pwd)
 
-
+sleep(10)
 user_logout_choice = pyautogui.prompt("Want to quit (Y/N) ::")
 
 if user_logout_choice == "Y" or user_logout_choice == "y":
