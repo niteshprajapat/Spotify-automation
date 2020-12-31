@@ -353,17 +353,17 @@ def Login(x,y):
         choice_user = int(input("Enter your Choice :: "))
 
         if choice_user == 1:
-            search("Thaarapadhamaake")
-
+            search("Enter song name") # song name must be same
+ 
         elif choice_user == 2:
             play_liked_songs()
 
         elif choice_user == 3:
-            fav_artist('Dino James')
-
+            fav_artist('Artist name') # Artist name must be same
+ 
         elif choice_user == 4:
             driver.quit()
-            
+
         else:
             pass 
 
