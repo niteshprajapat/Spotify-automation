@@ -190,54 +190,67 @@ def Login(x,y):
                 music_label.click()
 
                 
-                def asker():
+                
 
-                    try:
+                try:
         
-                        sleep(10)
-                        add_to_liked_songs = pyautogui.prompt("Want to add in Liked songs (Y/N):: ")
+                    sleep(10)
+                    add_to_liked_songs = pyautogui.prompt("Want to add in Liked songs (Y/N):: ")
 
-                        if add_to_liked_songs == "Y" or add_to_liked_songs == "y":
-                            if not (driver.title == "Remove from Your Library") :
+                    if add_to_liked_songs == "Y" or add_to_liked_songs == "y":
+
+                        # adding new feature
+                        
+                        with open("liked_playlist.txt", 'r+') as data:
+
+                            x = data.readlines()
+
+                            if song in x:
+                                print("Already in playlist!!")
+                            
+                            else:
+                                sleep(2)
+                                data.write(song)
                                 driver.execute_script("window.scrollBy(0,500)", "")
                                 driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[3]/footer/div/div[1]/div/div[3]/div/button').click()
                                 print("Currently playing song is add to 'Liked Song playlist'.")
 
-                            else:
-                                print("Already in 'Liked Song Playlist'. ")
+
+                        # ending of new feature
 
 
-                            sleep(5)
-                            playlist = pyautogui.prompt("Want to see 'Liked Song Playlist' (Y/N):: ")
+
+                        sleep(5)
+                        playlist = pyautogui.prompt("Want to see 'Liked Song Playlist' (Y/N):: ")
                             
-                            if playlist == 'Y' or playlist == 'y':
-                                driver.execute_script("window.scrollBy(0,500)", "")
-                                driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[2]/nav/div[2]/div/div[2]/a/span').click()
-                                sleep(10)
-
-                            else:
-                                pass
-
-                        elif add_to_liked_songs == 'N' or add_to_liked_songs == 'n':
-                            pyautogui.alert("Currently playing song is not added in 'Liked Song playlist")
-                            print("Currently playing song is not added in 'Liked Song playlist'.")
-                            
-                            Playlist = pyautogui.prompt("Want to see 'Liked Song Playlist' (Y/N):: ")
-
-                            if Playlist == 'Y' or Playlist == 'y':
-                                driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[2]/nav/div[2]/div/div[2]/a/span').click()
-
-                            else:
-                                pass
-                    
+                        if playlist == 'Y' or playlist == 'y':
+                            driver.execute_script("window.scrollBy(0,500)", "")
+                            driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[2]/nav/div[2]/div/div[2]/a/span').click()
+                            sleep(10)
 
                         else:
                             pass
 
-                    except Exception as e:
-                        print(f"Error :: {e}")
+                    elif add_to_liked_songs == 'N' or add_to_liked_songs == 'n':
+                        pyautogui.alert("Currently playing song is not added in 'Liked Song playlist")
+                        print("Currently playing song is not added in 'Liked Song playlist'.")
+                            
+                        Playlist = pyautogui.prompt("Want to see 'Liked Song Playlist' (Y/N):: ")
 
-                asker()
+                        if Playlist == 'Y' or Playlist == 'y':
+                            driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[2]/nav/div[2]/div/div[2]/a/span').click()
+
+                        else:
+                            pass
+                    
+
+                    else:
+                        pass
+
+                except Exception as e:
+                    print(f"Error :: {e}")
+
+                
 
             except Exception as e:
                 print(f"Error :: {e}")
@@ -353,7 +366,7 @@ def Login(x,y):
         choice_user = int(input("Enter your Choice :: "))
 
         if choice_user == 1:
-            search("Enter song name") # song name must be same
+            search("Mehrama") # song name must be same
  
         elif choice_user == 2:
             play_liked_songs()

@@ -7,6 +7,7 @@ developer = "Nitesh Prajapat"
 print("\n\t\tDeveloper by :-\n")
 name = pyfiglet.figlet_format(developer)
 print(name)
+print("\t\t\t\t\t\t\t\t\t Don't be the Same..... Be better everyday!!!!")
 
 print("Features :-")
 print("1. Sign Up")
