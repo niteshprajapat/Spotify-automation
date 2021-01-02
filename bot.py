@@ -365,8 +365,9 @@ def Login(x,y):
         print("4. Quit")
         choice_user = int(input("Enter your Choice :: "))
 
+        
         if choice_user == 1:
-            search("Mehrama") # song name must be same
+            search("California") # song name must be same
  
         elif choice_user == 2:
             play_liked_songs()
