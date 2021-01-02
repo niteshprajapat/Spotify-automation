@@ -213,7 +213,22 @@ def Login(x,y):
                                 data.write(song)
                                 driver.execute_script("window.scrollBy(0,500)", "")
                                 driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[3]/footer/div/div[1]/div/div[3]/div/button').click()
+                                pyautogui.alert("Currently playing song is added in 'Liked Song playlist")
                                 print("Currently playing song is add to 'Liked Song playlist'.")
+
+                        
+                        play_pause = pyautogui.prompt("play/Pause the song (Y/N) ")
+
+                        if play_pause == "y" or play_pause == "Y":
+                            sleep(2)
+                            driver.execute_script("window.scrollBy(0,1000)", "")
+                            pause_btn = driver.find_element(By.XPATH, '//*[@id="main"]/div/div[2]/div[3]/footer/div/div[2]/div/div[1]/button[3]')
+                            pause_btn.click()
+
+                        else:
+                            pass
+
+
 
 
                         # ending of new feature
@@ -367,7 +382,7 @@ def Login(x,y):
 
         
         if choice_user == 1:
-            search("California") # song name must be same
+            search("Bhool Bhulaiyaa\n") # song name must be same
  
         elif choice_user == 2:
             play_liked_songs()

@@ -2,7 +2,7 @@ import bot
 import password
 import pyfiglet
 
-developer = "Nitesh Prajapat"
+developer = "Nitesh Prajapat | pyd3v"
 
 print("\n\t\tDeveloper by :-\n")
 name = pyfiglet.figlet_format(developer)
