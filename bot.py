@@ -23,100 +23,225 @@ def Sign_UP():
     This function is used to sign up for Spotify Application.  
 
     """
-    try:
+
+    sleep(5)
+    sign_up = driver.find_element(By.LINK_TEXT, "Sign up").click() 
+    sleep(5)
 
 
-        sleep(5)
-        sign_up = driver.find_element(By.LINK_TEXT, "Sign up").click() 
-        sleep(5)
+    def manual_signup():
+        try:
 
-        EMAIL = "abc@gmail.com"  # add your email address
-        NICK_NAME = "XYZ"          # add your name by which spotify tries to remember you
+            # sleep(5)
+            # sign_up = driver.find_element(By.LINK_TEXT, "Sign up").click() 
+            # sleep(5)
 
-
-        YEAR =  1234                        # enter your Year of birth
-        DAY = 11                            # enter your Date of birth
-        Month_name = "January"             # enter your Month of birth    
+            EMAIL = "abc@gmail.com"  # add your email address
+            NICK_NAME = "XYZ"          # add your name by which spotify tries to remember you
 
 
-        sleep(2)
-
-        driver.find_element(By.XPATH, '//*[@id="onetrust-close-btn-container"]/button').click()
-        sleep(2)
-
-        your_email = driver.find_element(By.ID, "email")
-        your_email.send_keys(EMAIL)
-        sleep(2)
-
-        confirm_email = driver.find_element(By.ID, "confirm")
-        confirm_email.send_keys(EMAIL)
-        sleep(2)
-
-        driver.execute_script("window.scrollBy(0,300)", "")
-        sleep(2)
+            YEAR =  1234                        # enter your Year of birth
+            DAY = 11                            # enter your Date of birth
+            Month_name = "January"             # enter your Month of birth    
 
 
-        passwrd = driver.find_element(By.ID, "password")
-        passwrd.send_keys(password.PASSWORD)
-        sleep(2)
+            sleep(2)
 
-        nick_name = driver.find_element(By.ID, "displayname")
-        nick_name.send_keys(NICK_NAME)
-        sleep(5)
+            driver.find_element(By.XPATH, '//*[@id="onetrust-close-btn-container"]/button').click()
+            sleep(2)
 
-        driver.execute_script("window.scrollBy(0,300)", "")
-        sleep(2)
+            your_email = driver.find_element(By.ID, "email")
+            your_email.send_keys(EMAIL)
+            sleep(2)
 
-        year = driver.find_element(By.ID, "year")
-        year.send_keys(YEAR)
-        sleep(2)
+            confirm_email = driver.find_element(By.ID, "confirm")
+            confirm_email.send_keys(EMAIL)
+            sleep(2)
 
-        MONTH = Select(driver.find_element(By.ID, "month"))
-        MONTH.select_by_visible_text(Month_name)
-
-        day = driver.find_element(By.ID, "day")
-        day.send_keys(DAY)
-
-        driver.execute_script("window.scrollBy(0,200)", "")
-        sleep(2)
-
-        YOUR_GENDER = input("Enter your Gender (M/F/T) :: ")
-        sleep(2)
-
-        if YOUR_GENDER == "m" or YOUR_GENDER == "M" :
-            MALE = driver.find_element(By.XPATH, "//*[@id='__next']/main/div[2]/form/div[6]/div[2]/label[1]/span[1]").click()
-
-        elif YOUR_GENDER == "F" or YOUR_GENDER == "f":
-            FEMALE = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[6]/div[2]/label[2]/span[1]').click()
-
-        elif YOUR_GENDER == "T" or YOUR_GENDER == "t":
-            TRANS = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[6]/div[2]/label[3]/span[1]').click()
-
-        else:
-            pass
-
-        TERMS = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[7]/label/span[1]')
-        TERMS.click()
-        sleep(5)
-
-        driver.execute_script("window.scrollBy(0,300)", "")
-        
+            driver.execute_script("window.scrollBy(0,300)", "")
+            sleep(2)
 
 
-        pyautogui.alert("Please Solve reCAPTCHA puzzle!!!. You have 60 seconds.")   # Please solve reCAPTCHA puzzle to continue , this will not done by Bot .
-        sleep(60)
+            passwrd = driver.find_element(By.ID, "password")
+            passwrd.send_keys(password.PASSWORD)
+            sleep(2)
 
-        # Re_captcha = driver.find_element(By.ID, 'recaptcha-anchor')
-        # Re_captcha.click()
-        # print("Please solve captcha query!!")
-        # sleep(60)
+            nick_name = driver.find_element(By.ID, "displayname")
+            nick_name.send_keys(NICK_NAME)
+            sleep(5)
 
-        Sign_UP_btn = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[9]/div/button')
-        Sign_UP_btn.submit()
+            driver.execute_script("window.scrollBy(0,300)", "")
+            sleep(2)
 
-    except Exception as e:
-        print(f"Error :: {e}")
+            year = driver.find_element(By.ID, "year")
+            year.send_keys(YEAR)
+            sleep(2)
+
+            MONTH = Select(driver.find_element(By.ID, "month"))
+            MONTH.select_by_visible_text(Month_name)
+
+            day = driver.find_element(By.ID, "day")
+            day.send_keys(DAY)
+
+            driver.execute_script("window.scrollBy(0,200)", "")
+            sleep(2)
+
+            YOUR_GENDER = input("Enter your Gender (M/F/T) :: ")
+            sleep(2)
+
+            if YOUR_GENDER == "m" or YOUR_GENDER == "M" :
+                MALE = driver.find_element(By.XPATH, "//*[@id='__next']/main/div[2]/form/div[6]/div[2]/label[1]/span[1]").click()
+
+            elif YOUR_GENDER == "F" or YOUR_GENDER == "f":
+                FEMALE = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[6]/div[2]/label[2]/span[1]').click()
+
+            elif YOUR_GENDER == "T" or YOUR_GENDER == "t":
+                TRANS = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[6]/div[2]/label[3]/span[1]').click()
+
+            else:
+                pass
+
+            TERMS = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[7]/label/span[1]')
+            TERMS.click()
+            sleep(5)
+
+            driver.execute_script("window.scrollBy(0,300)", "")
+            
+
+
+            pyautogui.alert("Please Solve reCAPTCHA puzzle!!!. You have 60 seconds.")   # Please solve reCAPTCHA puzzle to continue , this will not done by Bot .
+            sleep(60)
+
+            # Re_captcha = driver.find_element(By.ID, 'recaptcha-anchor')
+            # Re_captcha.click()
+            # print("Please solve captcha query!!")
+            # sleep(60)
+
+            Sign_UP_btn = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[9]/div/button')
+            Sign_UP_btn.submit()
+
+        except Exception as e:
+            print(f"Error :: {e}")
+
+    # manual_signup()
+
+    # ======================= 
+
+    def signup_using_mobile_num():
+        try:
+            sleep(2)
+
+            num_signup = driver.find_element(By.LINK_TEXT, 'Use phone number instead.')
+            num_signup.click()
+
+            country_code = pyautogui.prompt("Enter Country Code (with +)")
+            sleep(2)
+
+            CODE = Select(driver.find_element(By.ID, 'phonelogin-country'))
+            CODE.select_by_visible_text(country_code)
+            
+            sleep(2)
+
+            PHONE_NUMBER = int(pyautogui.prompt("Enter your phone number "))
+
+            phone_number = driver.find_element(By.ID , 'phonelogin-phonenumber')
+            phone_number.send_keys(PHONE_NUMBER , Keys.ENTER)   
+            sleep(5)
+
+
+            pyautogui.alert("Please enter OTP received on your mobile number!!!")    
+            sleep(1)
+
+            OTP = int(pyautogui.prompt("Enter OTP received on your number "))
+            sleep(5)
+
+            OTP_input = driver.find_element(By.XPATH, '//*[@id="phonelogin-code"]')  
+            sleep(2)
+            OTP_input.send_keys(OTP, Keys.ENTER)
+            sleep(5)
+
+            # ========
+
+            NICK_NAMEE = "XYZ"          # add your name by which spotify tries to remember you
+
+            YEARR =  1234                        # enter your Year of birth
+            DAYY = 11                            # enter your Date of birth
+            Month_namee = "January"             # enter your Month of birth
+            
+            driver.find_element(By.XPATH, '//*[@id="onetrust-close-btn-container"]/button').click()
+            sleep(2)
+
+            # ========
+            display_name = driver.find_element(By.ID , 'displayname')
+            display_name.send_keys(NICK_NAMEE)
+
+            driver.execute_script("window.scrollBy(0,300)", "")
+
+            year = driver.find_element(By.ID, "year")
+            year.send_keys(YEARR)
+            sleep(2)
+
+            MONTH = Select(driver.find_element(By.ID, "month"))
+            MONTH.select_by_visible_text(Month_namee)
+
+            day = driver.find_element(By.ID, "day")
+            day.send_keys(DAYY)
+
+            driver.execute_script("window.scrollBy(0,200)", "")
+            sleep(2)
+
+            YOUR_GENDER = input("Enter your Gender (M/F/T) :: ")
+            sleep(2)
+
+            if YOUR_GENDER == "m" or YOUR_GENDER == "M" :
+                MALE = driver.find_element(By.XPATH, "//*[@id='__next']/main/div[2]/form/div[6]/div[2]/label[1]/span[1]").click()
+
+            elif YOUR_GENDER == "F" or YOUR_GENDER == "f":
+                FEMALE = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[6]/div[2]/label[2]/span[1]').click()
+
+            elif YOUR_GENDER == "T" or YOUR_GENDER == "t":
+                TRANS = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[6]/div[2]/label[3]/span[1]').click()
+
+            else:
+                pass
+
+            TERMS = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[7]/label/span[1]')
+            TERMS.click()
+            sleep(5)
+
+            driver.execute_script("window.scrollBy(0,300)", "")
+            
+
+
+            pyautogui.alert("Please Solve reCAPTCHA puzzle!!!. You have 60 seconds.")   # Please solve reCAPTCHA puzzle to continue , this will not done by Bot .
+            sleep(60)
+
+            Sign_UP_btn = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[2]/form/div[9]/div/button')
+            Sign_UP_btn.submit()
+
+
+
+        except Exception as e:
+            print(f"Error :: {e}")
+
+    # signup_using_mobile_num()
     
+    # ==============================
+
+    print("1 Manual SignUp")
+    print("2 Using Mobile number")
+    print("3 EXIT")
+    signup_choice = int(input("enter choice :: "))
+
+    if signup_choice == 1:
+        manual_signup()
+
+    elif signup_choice == 2:
+        signup_using_mobile_num()
+
+    elif signup_choice == 3 or signup_choice != 1 or signup_choice != 2:
+        driver.quit()
+
 
 
 # Sign_UP()
